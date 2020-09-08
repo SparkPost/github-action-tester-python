@@ -3,6 +3,8 @@
 
 This repository contains a simple GitHub Action which allows you to run a shell-script every time an event occurs within your repository.
 
+This is a Python3-flavored hard fork of https://github.com/skx/github-action-tester, which is really more Go-flavored.
+
 * [GitHub Action for Running tests](#github-action-for-running-tests)
   * [Overview](#overview)
   * [Enabling the action](#enabling-the-action)
@@ -71,7 +73,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Test
-      uses: skx/github-action-tester@master
+      uses: SparkPost/github-action-tester@master
 ```
 
 This example will run the default test-script, `.github/run-tests.sh`, every time a pull-request is created, edited, or updated.
@@ -101,7 +103,7 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: Test
-      uses: skx/github-action-tester@master
+      uses: SparkPost/github-action-tester@master
       with:
         script: .github/fast-tests.sh
 ```
