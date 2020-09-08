@@ -11,5 +11,6 @@ LABEL homepage="http://github.com/skx/github-action-tester"
 LABEL maintainer="Steve Kemp <steve@steve.fi>"
 
 COPY "entrypoint.sh" "/entrypoint.sh"
+COPY "Pipfile" "/Pipfile"
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
