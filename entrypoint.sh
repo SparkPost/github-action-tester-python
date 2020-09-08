@@ -40,7 +40,10 @@ fi
 #
 # Ensure the script is executable.
 #
-chmod 755 "${script}"
+if [ ! -x "${script}" ]; then
+    echo "The supplied testing-script is not executable: ${script}"
+    exit 1
+fi
 
 
 #
@@ -63,12 +66,3 @@ ${script}
 # Exit cleanly because we're done.
 #
 exit 0
-
-
-#
-# There is no test-script within the repository.
-#
-# Show that, and exit with a failure-code.
-#
-echo "The repository does not contain a test-script '.github/run-tests.sh'"
-exit 1
