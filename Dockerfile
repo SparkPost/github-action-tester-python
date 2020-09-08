@@ -1,8 +1,10 @@
 FROM python:3.8-slim
 
-RUN pip install pipenv pyenv && \
+RUN pip install pipenv && \
   apt-get update && \
   apt-get install -y --no-install-recommends gcc python3-dev libssl-dev
+
+RUN curl https://pyenv.run | bash
 
 LABEL "com.github.actions.name"="github-action-tester"
 LABEL "com.github.actions.description"="Run tests against pull requests"
