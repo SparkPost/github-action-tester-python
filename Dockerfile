@@ -1,4 +1,4 @@
-FROM golang:latest
+FROM kennethreitz/pipenv:latest
 
 LABEL "com.github.actions.name"="github-action-tester"
 LABEL "com.github.actions.description"="Run tests against pull requests"
