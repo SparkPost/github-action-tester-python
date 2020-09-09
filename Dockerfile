@@ -1,6 +1,14 @@
 FROM python:3.8-slim
 
+ARG UID=1000
+ARG GID=1000
+
 RUN pip install pipenv pytest
+
+RUN userdel -f ghrunner &&\
+    if getent group ghrunner ; then groupdel ghrunner; fi &&\
+    groupadd -g ${GID} ghrunner &&\
+    useradd -l -u ${UID} -g ghrunner ghrunner
 
 LABEL "com.github.actions.name"="github-action-tester-python"
 LABEL "com.github.actions.description"="Run tests against pull requests"
@@ -15,6 +23,6 @@ LABEL maintainer="John Peacock <john.peacock@sparkpost.com>"
 COPY "entrypoint.sh" "/entrypoint.sh"
 RUN chmod +x /entrypoint.sh
 
-USER 1001
+USER ghrunner
 
 ENTRYPOINT ["/entrypoint.sh"]
