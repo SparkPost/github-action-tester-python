@@ -5,9 +5,7 @@ ARG GID=1003
 
 RUN pip install pipenv pytest
 
-RUN userdel -f ghrunner &&\
-    if getent group ghrunner ; then groupdel ghrunner; fi &&\
-    groupadd -g ${GID} ghrunner &&\
+RUN groupadd -g ${GID} ghrunner &&\
     useradd -l -u ${UID} -g ghrunner ghrunner
 
 LABEL "com.github.actions.name"="github-action-tester-python"
