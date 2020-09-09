@@ -1,7 +1,7 @@
 FROM python:3.8-slim
 
-ARG UID=1000
-ARG GID=1000
+ARG UID=1003
+ARG GID=1003
 
 RUN pip install pipenv pytest
 
