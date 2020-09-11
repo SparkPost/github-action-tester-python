@@ -3,7 +3,7 @@ FROM python:3.8-slim
 ARG UID=1003
 ARG GID=1003
 
-RUN py -m pip install --upgrade pip
+RUN python3 -m pip install --upgrade pip
 RUN pip install pipenv pytest
 
 RUN groupadd -g ${GID} ghrunner &&\
