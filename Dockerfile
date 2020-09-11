@@ -3,11 +3,12 @@ FROM python:3.8-slim
 ARG UID=1003
 ARG GID=1003
 
-RUN python3 -m pip install --upgrade pip
-RUN pip install pipenv pytest
+RUN python -m pip install --upgrade pip && \
+    pip install pipenv pytest && \
+    pip --version
 
-RUN groupadd -g ${GID} ghrunner &&\
-    useradd -l -u ${UID} -g ghrunner ghrunner
+RUN groupadd -g ${GID} ghrunner && \
+    useradd -l -u ${UID} -g ghrunner -m ghrunner
 
 LABEL "com.github.actions.name"="github-action-tester-python"
 LABEL "com.github.actions.description"="Run tests against pull requests"
