@@ -1,12 +1,9 @@
-FROM python:3.8-slim
+FROM python:3.8-slim-buster
 
 ARG UID=1003
 ARG GID=1003
 
-COPY get-pip.py /var/tmp/
-
-RUN python /var/tmp/get-pip.py --ignore-installed && \
-    pip install pipenv pytest
+RUN pip install pipenv pytest
 
 RUN groupadd -g ${GID} ghrunner && \
     useradd -l -u ${UID} -g ghrunner -m ghrunner
