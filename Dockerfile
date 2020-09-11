@@ -3,8 +3,9 @@ FROM python:3.8-slim
 ARG UID=1003
 ARG GID=1003
 
-RUN wget https://bootstrap.pypa.io/get-pip.py && \
-    python get-pip.py --ignore-installed \
+COPY get-pip.py /var/tmp/
+
+RUN python /var/tmp/get-pip.py --ignore-installed && \
     pip install pipenv pytest
 
 RUN groupadd -g ${GID} ghrunner && \
