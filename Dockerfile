@@ -3,7 +3,10 @@ FROM python:3.8-slim-buster
 ARG UID=1003
 ARG GID=1003
 
-RUN pip install pipenv pytest
+COPY get-pip.py /var/tmp/
+
+RUN python /var/tmp/get-pip.py pip==20.2.2 && \
+    pip install pipenv pytest
 
 RUN groupadd -g ${GID} ghrunner && \
     useradd -l -u ${UID} -g ghrunner -m ghrunner
