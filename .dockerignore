@@ -4,3 +4,4 @@
 !Pipfile*
 !entrypoint.sh
 !README.md
+!get-pip.py
