@@ -52,7 +52,9 @@ fi
 ${script}
 
 # clean up the virtualenv folder for now
-rm -r /github/home/.local/share/virtualenv
+if [ -d /github/home/.local/share/virtualenv ]; then
+  rm -r /github/home/.local/share/virtualenv
+fi
 
 #
 # If the script exits with a non-zero status-code
