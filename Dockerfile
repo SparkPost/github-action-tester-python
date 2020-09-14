@@ -1,4 +1,4 @@
-FROM python:3.8-slim-buster
+FROM python@sha256:8158c9c97e025bbd8e82246e6f4596bda0923b2f830d27d05f0ed8907931e6f
 
 ARG UID=1003
 ARG GID=1003
