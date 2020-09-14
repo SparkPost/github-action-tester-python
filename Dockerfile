@@ -1,9 +1,10 @@
-FROM python@sha256:d2cbcf4d205ca2210e46915f79f486dffe710d2b1deedbe4f7c017e2f9d9b6a8
+FROM python:3.8.5-slim-buster
 
 ARG UID=1003
 ARG GID=1003
 
-RUN pip install pipenv pytest
+RUN pip uninstall virtualenv && \
+  pip install pipenv pytest
 
 RUN groupadd -g ${GID} ghrunner && \
     useradd -l -u ${UID} -g ghrunner -m ghrunner
