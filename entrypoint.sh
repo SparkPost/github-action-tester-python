@@ -46,15 +46,17 @@ if [ ! -x "${script}" ]; then
 fi
 
 
+# clean up the virtualenv folder before we try and run script
+if [ -d /github/home/.local/share/virtualenv ]; then
+  rm -r /github/home/.local/share/virtualenv
+fi
+
+
 #
 # Run it.
 #
 ${script}
 
-# clean up the virtualenv folder for now
-if [ -d /github/home/.local/share/virtualenv ]; then
-  rm -r /github/home/.local/share/virtualenv
-fi
 
 #
 # If the script exits with a non-zero status-code
