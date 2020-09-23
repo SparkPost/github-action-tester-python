@@ -3,8 +3,10 @@ FROM python:3.6.8-slim-stretch
 ARG UID=1003
 ARG GID=1003
 
-RUN pip install \
+RUN pip install --upgrade \
+  pip \
   setuptools \
+  importlib-metadata \
   pipenv \
   pytest
 
