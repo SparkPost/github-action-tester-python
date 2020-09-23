@@ -3,7 +3,10 @@ FROM python:3.6.8-slim-stretch
 ARG UID=1003
 ARG GID=1003
 
-RUN pip install pipenv pytest
+RUN pip install \
+  setuptools \
+  pipenv \
+  pytest
 
 RUN groupadd -g ${GID} ghrunner && \
     useradd -l -u ${UID} -g ghrunner -m ghrunner
