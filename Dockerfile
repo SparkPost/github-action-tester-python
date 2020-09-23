@@ -6,7 +6,7 @@ ARG GID=1003
 RUN pip install --upgrade \
   pip \
   setuptools \
-  importlib-metadata \
+  importlib-metadata==1.7.0 \
   pipenv \
   pytest
 
