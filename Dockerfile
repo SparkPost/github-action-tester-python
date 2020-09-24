@@ -1,4 +1,4 @@
-FROM python:3.6.8-slim-stretch
+FROM python:3.8.5-slim-buster
 
 ARG UID=1003
 ARG GID=1003
